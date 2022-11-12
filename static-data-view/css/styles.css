@@ -1,0 +1,64 @@
+* {
+  font-family: 'Work Sans', sans-serif;
+}
+
+header {
+  text-align: center;
+}
+
+.row {
+  margin: 2em 0em;
+}
+
+#dial-container {
+  border: 1px solid #ccc;
+  height: 5vh;
+}
+
+#tree-container {
+  border: 1px solid #ccc;
+}
+
+#tree-container svg {
+  width: 100%;
+  height: 45vh;
+}
+
+.table {
+  table-layout: fixed;
+  white-space: nowrap;
+}
+
+#table-container {
+  border: 1px solid #ccc;
+  height: 25vh;
+}
+
+#table-container svg {
+  width: 100%;
+}
+
+th {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+th span {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+td {
+  font-size: 14px;
+  text-align: center;
+}
+
+.fa {
+  color: #ccc;
+  height: 1px;
+  line-height: 1.3;
+}
+
+.sorted {
+  color: black;
+}
