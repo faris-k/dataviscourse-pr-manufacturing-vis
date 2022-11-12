@@ -1,0 +1,33 @@
+.item1 {
+	grid-area: buttons;
+}
+.item2 {
+	grid-area: menu;
+}
+.item3 {
+	grid-area: main;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-areas:
+		"buttons buttons buttons buttons buttons"
+		"menu menu menu menu main";
+	gap: 10px;
+	padding: 10px;
+}
+
+h1 {
+	margin-top: 0;
+	color: #343651;
+}
+
+h2 {
+	color: #343651;
+}
+
+header {
+	padding: 0.5em;
+	text-align: center;
+	height: 100px;
+}

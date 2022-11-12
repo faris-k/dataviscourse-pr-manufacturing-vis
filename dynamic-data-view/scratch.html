@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Dynamic Data View -- Milestone Update</title>
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+		<link
+			href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="styles.css" />
+
+		<!-- Bootstrap styling if you want to use it:  -->
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+			crossorigin="anonymous"
+		/>
+	</head>
+
+	<body>
+		<div id="header-wrap">
+			<header>
+				<h1>Line Chart and Scatterplot Matrix of Dynamic Tool Data</h1>
+				<div>
+					Name: Faris Khan; E-Mail: m.faris.khan@utah.edu; UID:
+					u1164527
+				</div>
+			</header>
+
+			<div class="grid-container">
+				<div class="item1">
+					Placeholder for anything that should go at the top of this
+					view
+					<form
+						class="btn-group btn-group-toggle"
+						data-toggle="buttons"
+					>
+						<label id="overall" class="btn btn-secondary active">
+							<input
+								type="radio"
+								name="controlHeatmapType"
+							/>Radio 1<br />
+						</label>
+						<label id="grouped" class="btn btn-secondary">
+							<input
+								type="radio"
+								name="controlHeatmapType"
+							/>Radio 2<br />
+						</label>
+					</form>
+
+					<form
+						class="btn-group btn-group-toggle"
+						data-toggle="buttons"
+					>
+						<label id="hide-extremes" class="btn btn-info active">
+							<input
+								type="radio"
+								name="controlHeatmapType"
+							/>Radio 1<br />
+						</label>
+						<label id="extremes" class="btn btn-info">
+							<input
+								type="radio"
+								name="controlHeatmapType"
+							/>Radio 2<br />
+						</label>
+					</form>
+				</div>
+				<div id="linechart-div" class="item2"></div>
+				<div id="splom-div" class="item3"></div>
+			</div>
+		</div>
+	</body>
+	<script src="js/script.js"></script>
+	<script src="js/splom.js"></script>
+	<script src="js/linechart.js"></script>
+</html>
