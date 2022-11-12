@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Visualization - CS6630 Project - Visualizing Manufacturing Equipment Structure and Behavior</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/ce2bc5ed0d.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap" rel="stylesheet">
+    <!-- 
+       Bootstrap styling if you want to use it: 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+	<style>
+		.wrapper {
+		  display: grid;
+		  grid-template-columns: 450px 850px;
+		  }
+		.childNode {
+		  width:100%;
+		 } 
+	</style>
+</head>
+
+<body>
+    <div id="header-wrap" style="width:1400px">
+        <header>
+            <h1>Manufacturing Equipment Visualization Workbench</h1>
+            <h2>Project Team: Alan Weber, Faris Khan, Filemon Mateus</h2>
+			<br />
+        </header>
+    </div>
+	<div>
+		<label>Task Selection</label>
+		<input type="checkbox" id="topicCheckbox" style="margin:5px;">
+		<button id="Metadata" style="margin:0 0 0 20px;">Equipment Metadata Models</button>
+	</div>
+	<div id="content" class='wrapper' style="width:1400px">
+		<div id="leftPane" width="700">
+			<svg id="bubbleChart" viewBox="0 0 700 900">
+				<g id="bubbleHeader"></g>
+				<g id="bubbleAxis"></g>
+				<g id="bubbleBody"></g>
+				<div id="tip"></div>
+				<div id="selection-output"></div>
+			</svg>
+		</div>
+		<div id="rightPane" width="767">
+				<table id="phraseTable" class='childNode' style="width:750px">
+					<thead>
+						<tr id="columnHeaders" style="width:700px height:40px">
+							<th id="phrase" class="sortable" style="width:150px; height:40px">Equipment <i class="fas no-display"></i></th>
+							<th id="frequency" class="sortable" style="width:150px; height:40px">Substrate <i class="fas no-display"></i></th>
+							<th id="percentage" class="sortable" style="width:300px; height:40px">Locations <i class="fas no-display"></i></th>
+							<th id="total" class="sortable" style="width:100px; height:40px">Timestamp <i class="fas no-display"></i></th>
+						</tr>
+						<tr>
+							<td><svg id="phraseAxis" style="width:150"></svg></td>
+							<td><svg id="freqAxis"style="width:150"></svg></td>
+							<td><svg id="percDemAxis"style="width:150"></svg></td>
+							<td><svg id="percRepAxis"style="width:150"></svg></td>
+							<td><svg id="totalAxis"style="width:100"></svg></td>
+						</tr>
+					</thead>
+					<tbody id="phraseTableBody" style="width:700">
+						<tr>
+							<td width="150px"></td>
+							<td width="150px"></td>
+							<td width="150px"></td>
+							<td width="150px"></td>
+							<td width="100px"></td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+	</div>
+	<script src="js/script.js"></script>
+    <script src="js/nodeSequence.js"></script>
+	<script src="js/nodeTiming.js"></script>
+</body>
+
+</html>
