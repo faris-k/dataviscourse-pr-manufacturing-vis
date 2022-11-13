@@ -11,31 +11,21 @@ header {
 }
 
 #dial-container {
-  border: 1px solid #ccc;
   height: 5vh;
-}
-
-#tree-container {
-  border: 1px solid #ccc;
 }
 
 #tree-container svg {
   width: 100%;
-  height: 45vh;
-}
-
-.table {
-  table-layout: fixed;
-  white-space: nowrap;
+  height: 40vh;
+  border: 1px solid #dee2e6;
 }
 
 #table-container {
-  border: 1px solid #ccc;
-  height: 25vh;
+  height: 30vh;
 }
 
-#table-container svg {
-  width: 100%;
+.table {
+  white-space: nowrap;
 }
 
 th {

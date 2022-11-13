@@ -1,6 +1,6 @@
 class Table {
-  constructor(container, global_app_state) {
-    this.data = global_app_state.data;
+  constructor(container, globalAppState) {
+    this.data = globalAppState.data;
     this.headers = [
       {
         sorted: false,
@@ -17,50 +17,53 @@ class Table {
       {
         sorted: false,
         descending: false,
-        key: 'n_states',
-        alterFunc: d => +d.n_states,
+        key: 'nStates',
+        alterFunc: d => +d.nStates,
       },
       {
         sorted: false,
         descending: false,
-        key: 'n_events',
-        alterFunc: d => +d.n_events,
+        key: 'nEvents',
+        alterFunc: d => +d.nEvents,
       },
       {
         sorted: false,
         descending: false,
-        key: 'n_attributes',
-        alterFunc: d => +d.n_attributes,
+        key: 'nAttributes',
+        alterFunc: d => +d.nAttributes,
       },
       {
         sorted: false,
         descending: false,
-        key: 'n_parameters',
-        alterFunc: d => +d.n_parameters,
+        key: 'nParameters',
+        alterFunc: d => +d.nParameters,
       },
       {
         sorted: false,
         descending: false,
-        key: 'n_exceptions',
-        alterFunc: d => +d.n_exceptions,
+        key: 'nExceptions',
+        alterFunc: d => +d.nExceptions,
       },
       {
         sorted: false,
         descending: false,
-        key: 'n_state_machines',
-        alterFunc: d => +d.n_state_machines,
+        key: 'nStateMachines',
+        alterFunc: d => +d.nStateMachines,
       },
     ];
-    this.table = this.create_table(container);
+    this.table = this.createTable(container);
   }
 
-  create_table(container) {
+  createTable(container) {
     let table = container
       .append('table')
-      .classed('table table-hover', true);
+      .classed('table', true)
+      .classed('table-hover', true)
+      .classed('table-bordered', true);
 
     let thead = table
       .append('thead')
+      .classed('thead-light', true)
       .classed('text-center', true);
 
     thead
@@ -83,7 +86,7 @@ class Table {
     return table;
   }
 
-  attach_sort_handlers() {
+  attachSortHandlers() {
     this.table.selectAll('th').on('click', e => {
       this.headers.forEach((column) => {
         if (column.key === e.target.id) {
@@ -106,7 +109,7 @@ class Table {
     });
   }
 
-  row_to_cell_data_transform(d) {
+  rowToCellDataTransform(d) {
     const name = {
       type: 'text',
       class: 'align-middle',
@@ -117,57 +120,57 @@ class Table {
       class: 'align-middle',
       value: d.type,
     };
-    const n_states = {
+    const nStates = {
       type: 'text',
       class: 'align-middle',
-      value: d.n_states,
+      value: d.nStates,
     };
-    const n_events = {
+    const nEvents = {
       type: 'text',
       class: 'align-middle',
-      value: d.n_events,
+      value: d.nEvents,
     };
-    const n_attributes = {
+    const nAttributes = {
       type: 'text',
       class: 'align-middle',
-      value: d.n_attributes,
+      value: d.nAttributes,
     };
-    const n_parameters = {
+    const nParameters = {
       type: 'text',
       class: 'align-middle',
-      value: d.n_parameters,
+      value: d.nParameters,
     };
-    const n_exceptions = {
+    const nExceptions = {
       type: 'text',
       class: 'align-middle',
-      value: d.n_exceptions,
+      value: d.nExceptions,
     };
-    const n_state_machines = {
+    const nStateMachines = {
       type: 'text',
       class: 'align-middle',
-      value: d.n_state_machines,
+      value: d.nStateMachines,
     };
-    const data_list = [name, type, n_states, n_events, n_attributes, n_parameters, n_exceptions, n_state_machines];
-    return data_list;
+    const dataList = [name, type, nStates, nEvents, nAttributes, nParameters, nExceptions, nStateMachines];
+    return dataList;
   }
 
   render() {
-    let row_selector = this.table
+    let rowSelector = this.table
       .select('tbody')
       .selectAll('tr')
       .data(this.data)
       .join('tr');
 
-    let cell_selector = row_selector
+    let cellSelector = rowSelector
       .selectAll('td')
-      .data(this.row_to_cell_data_transform)
+      .data(this.rowToCellDataTransform)
       .join('td');
 
-    let text_selector = cell_selector
+    let textSelector = cellSelector
       .filter(d => d.type === 'text')
       .html(d => d.value)
       .attr('class', d => d.class);
 
-    this.attach_sort_handlers();
+    this.attachSortHandlers();
   }
 };
