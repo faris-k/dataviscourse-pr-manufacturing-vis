@@ -139,8 +139,12 @@ function callFilemonSelect() {
 function callFilemonEdit() {
 	console.log("callFilemonEdit");
 }
+
 function callFilemonViz() {
-	console.log("callFilemonViz");
+  d3.select(".grid-container-faris").html('');
+  d3.select("#grid-container-filemon").html('');
+  let container = d3.select('#rightPane');
+  initStaticDataViewer(container);
 }
 
 function callFarisSelect() {
