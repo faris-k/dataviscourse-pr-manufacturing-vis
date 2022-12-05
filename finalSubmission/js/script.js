@@ -3,59 +3,62 @@
 //	Faris Khan, Filemon Mateus, Alan Weber
 //
 
-var x1 = d3.select("#metadataModel");
-x1.on("click", (event, d) => {
-	d3.selectAll(".grid-container-faris").remove();
-	d3.selectAll("#grid-container-filemon").remove();
-	this.callFilemonSelect();
-});
-var x2 = d3.select("#traceData");
-x2.on("click", (event, d) => {
-	d3.selectAll(".grid-container-faris").remove();
-	d3.selectAll("#grid-container-filemon").remove();
-	this.callFarisSelect();
-});
-var x3 = d3.select("#eventData");
-x3.on("click", (event, d) => {
-	d3.selectAll(".grid-container-faris").remove();
-	d3.selectAll("#grid-container-filemon").remove();
-	this.callAlanSelect();
-});
+// var x1 = d3.select("#metadataModel");
+// x1.on("click", (event, d) => {
+// 	d3.selectAll(".grid-container-faris").remove();
+// 	d3.selectAll("#grid-container-filemon").remove();
+// 	this.callFilemonSelect();
+// });
+// var x2 = d3.select("#traceData");
+// x2.on("click", (event, d) => {
+// 	d3.selectAll(".grid-container-faris").remove();
+// 	d3.selectAll("#grid-container-filemon").remove();
+// 	this.callFarisSelect();
+// });
+// var x3 = d3.select("#eventData");
+// x3.on("click", (event, d) => {
+// 	d3.selectAll(".grid-container-faris").remove();
+// 	d3.selectAll("#grid-container-filemon").remove();
+// 	this.callAlanSelect();
+// });
 
-var x4 = d3.select("#editModel");
-x4.on("click", (event, d) => {
-	d3.selectAll(".grid-container-faris").remove();
-	d3.selectAll("#grid-container-filemon").remove();
-	this.callFilemonEdit();
-});
-var x5 = d3.select("#editTrace");
-x5.on("click", (event, d) => {
-	d3.selectAll(".grid-container-faris").remove();
-	d3.selectAll("#grid-container-filemon").remove();
-	this.callFarisEdit();
-});
-var x6 = d3.select("#editEvent");
-x6.on("click", (event, d) => {
-	d3.selectAll(".grid-container-faris").remove();
-	d3.selectAll("#grid-container-filemon").remove();
-	this.callAlanEdit();
-});
+// var x4 = d3.select("#editModel");
+// x4.on("click", (event, d) => {
+// 	d3.selectAll(".grid-container-faris").remove();
+// 	d3.selectAll("#grid-container-filemon").remove();
+// 	this.callFilemonEdit();
+// });
+// var x5 = d3.select("#editTrace");
+// x5.on("click", (event, d) => {
+// 	d3.selectAll(".grid-container-faris").remove();
+// 	d3.selectAll("#grid-container-filemon").remove();
+// 	this.callFarisEdit();
+// });
+// var x6 = d3.select("#editEvent");
+// x6.on("click", (event, d) => {
+// 	d3.selectAll(".grid-container-faris").remove();
+// 	d3.selectAll("#grid-container-filemon").remove();
+// 	this.callAlanEdit();
+// });
 
 var x7 = d3.select("#vizModel");
 x7.on("click", (event, d) => {
 	d3.selectAll(".grid-container-faris").remove();
 	d3.selectAll("#grid-container-filemon").remove();
+	emptyAlanDivs();
 	this.callFilemonViz();
 });
 var x8 = d3.select("#vizTrace");
 x8.on("click", (event, d) => {
 	// Here, we create dynamic data visualizations (Faris); remove other divs here!
+	emptyAlanDivs();
 	this.callFarisViz();
 });
 var x9 = d3.select("#vizEvent");
 x9.on("click", (event, d) => {
 	d3.selectAll(".grid-container-faris").remove();
 	d3.selectAll("#grid-container-filemon").remove();
+	this.callAlanSelect();
 	this.callAlanViz();
 });
 
@@ -149,12 +152,12 @@ function callFilemonEdit() {
 }
 
 function callFilemonViz() {
-  d3.selectAll("#grid-container-filemon").remove();
-  let container = d3.select('#rightPane');
-  initStaticDataViewer(container);
-  d3.selectAll('div#tipNode').data([0]).join('div#tipNode');
-  d3.selectAll('div#vizTitle').data([0]).join('div#vizTitle');
-  d3.selectAll('div#nodetiming-div').data([0]).join('div#nodetiming-div');
+	d3.selectAll("#grid-container-filemon").remove();
+	let container = d3.select("#rightPane");
+	initStaticDataViewer(container);
+	d3.selectAll("div#tipNode").data([0]).join("div#tipNode");
+	d3.selectAll("div#vizTitle").data([0]).join("div#vizTitle");
+	d3.selectAll("div#nodetiming-div").data([0]).join("div#nodetiming-div");
 }
 
 function callFarisSelect() {
@@ -164,8 +167,16 @@ function callFarisEdit() {
 	console.log("callFarisEdit");
 }
 
+function emptyAlanDivs() {
+	d3.select("#vizTitle").html(null);
+	d3.select("#nodetiming-div").html(null);
+	d3.select("#tipNode").html(null);
+	d3.select("#nodesequence-div").html(null);
+	d3.select("#recipetiming-div").html(null);
+}
+
 function callFarisViz() {
-  d3.selectAll("#grid-container-filemon").remove();
+	d3.selectAll("#grid-container-filemon").remove();
 	// ******* DATA LOADING *******
 	async function loadData() {
 		const traceData = await d3.json("./TraceData/dummy_traces.json");

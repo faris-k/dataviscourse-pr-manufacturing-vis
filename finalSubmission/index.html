@@ -99,7 +99,7 @@
 			;
 		>
 			<div id="leftPane" width="250">
-				<header>
+				<!-- <header>
 					<br />
 					<h2>Task Groups</h2>
 					<h3>Equipment and Data Selection</h3>
@@ -109,19 +109,20 @@
 					<button id="traceData" class="btn btn-primary">
 						Select Trace Data</button
 					><br /><br />
-					<button id="eventData" class="btn btn-primary">
+					<button id="eventData" class="btn btn-info">
 						Select Event Data</button
 					><br /><br />
-				</header>
+				</header> -->
 				<header>
+					<br />
 					<h3>Exploration and Visualization</h3>
-					<button id="vizModel" class="btn btn-primary">
+					<button id="vizModel" class="btn btn-warning">
 						Visualize Equipment Model</button
 					><br /><br />
-					<button id="vizTrace" class="btn btn-primary">
+					<button id="vizTrace" class="btn btn-warning">
 						Analyze Trace Data</button
 					><br /><br />
-					<button id="vizEvent" class="btn btn-primary">
+					<button id="vizEvent" class="btn btn-info">
 						Analyze Event Data</button
 					><br /><br />
 				</header>
@@ -140,10 +141,31 @@
 					class="awitem1"
 					style="position: relative; left: 300px; top: 30px"
 				>
-					<form class="btn-group btn-group-toggle">
+					<div
+						class="btn-group"
+						role="group"
+						aria-label="Basic example"
+					>
+						<button
+							type="button"
+							class="btn btn-outline-info"
+							id="eventRadio-1"
+						>
+							Node Visit Timing
+						</button>
+						<button
+							type="button"
+							class="btn btn-outline-info"
+							id="eventRadio-3"
+						>
+							Recipe Execution Timing
+						</button>
+					</div>
+
+					<!-- <form class="btn-group btn-group-toggle">
 						<label
 							id="eventRadio-1"
-							class="btn btn-secondary active"
+							class="btn btn-secondary"
 							style="margin: 20px"
 							;
 						>
@@ -163,7 +185,7 @@
 						>
 							<input type="radio" />Recipe Execution Timing<br />
 						</label>
-					</form>
+					</form> -->
 				</div>
 				<div
 					id="vizTitle"
@@ -187,9 +209,9 @@
 		<script src="js/recipeTiming.js"></script>
 		<script src="js/splom.js"></script>
 		<script src="js/linechart.js"></script>
-    <script src='js/static-node.js'></script>
-    <script src='js/static-tree.js'></script>
-    <script src='js/static-table.js'></script>
-    <script src='js/static-script.js'></script>
+		<script src="js/static-node.js"></script>
+		<script src="js/static-tree.js"></script>
+		<script src="js/static-table.js"></script>
+		<script src="js/static-script.js"></script>
 	</body>
 </html>
