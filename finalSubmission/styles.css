@@ -1,0 +1,55 @@
+.item11 {
+	grid-area: buttons;
+}
+.item22 {
+	grid-area: menu;
+}
+.item33 {
+	grid-area: main;
+}
+
+.grid-container-faris {
+	display: grid;
+	grid-template-areas:
+		"buttons buttons buttons buttons"
+		"menu menu menu main";
+	gap: 10px;
+	padding: 10px;
+}
+
+#Beta1 {
+	color: #4e79a7;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#Beta2 {
+	color: #f28e2c;
+	text-decoration: none;
+	font-weight: bold;
+}
+#ChiSquare1 {
+	color: #e15759;
+	text-decoration: none;
+	font-weight: bold;
+}
+#Exponential1 {
+	color: #76b7b2;
+	text-decoration: none;
+	font-weight: bold;
+}
+#InverseGamma1 {
+	color: #59a14f;
+	text-decoration: none;
+	font-weight: bold;
+}
+#Laplace2 {
+	color: #edc949;
+	text-decoration: none;
+	font-weight: bold;
+}
+#Normal1 {
+	color: #af7aa1;
+	text-decoration: none;
+	font-weight: bold;
+}

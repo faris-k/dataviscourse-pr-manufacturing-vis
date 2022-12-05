@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			Visualization - CS6630 Project - Visualizing Manufacturing Equipment
+			Structure and Behavior
+		</title>
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+		<script src="https://d3js.org/d3-hexbin.v0.2.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+			integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+			crossorigin="anonymous"
+		/>
+		<script
+			src="https://kit.fontawesome.com/ce2bc5ed0d.js"
+			crossorigin="anonymous"
+		></script>
+		<link
+			href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+		<link rel="stylesheet" href="styles.css" />
+
+		<style>
+			.wrapper {
+				display: grid;
+				grid-template-columns: 250px 1fr;
+			}
+			.childNode {
+				width: 100%;
+			}
+			input[type="checkbox"] {
+				margin-right: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div
+			id="header-wrap"
+			title="Explore static structure and dynamic behavior of complex manufacturing equipment"
+			style="position: relative; left: 20px; top: 10px"
+		>
+			<div id="tip"></div>
+			<header>
+				<h1>Manufacturing Equipment Visualization Workbench</h1>
+				<h2>Project Team: Faris Khan, Filemon Mateus, Alan Weber</h2>
+				<br />
+				<img
+					src="./Images/Asher.svg"
+					height="120"
+					title="Surface Preparation"
+				/>
+				<img
+					src="./Images/Implanter_1.svg"
+					height="120"
+					title="Ion Implanter"
+				/>
+				<img
+					src="./Images/Vertical_Furnace.svg"
+					height="120"
+					title="RTP Furnace"
+				/>
+				<img
+					src="./Images/Litho_Track.svg"
+					height="120"
+					title="Litho Track"
+				/>
+				<img
+					src="./Images/Etch_1.svg"
+					height="120"
+					title="Plasma Etch"
+				/>
+				<img src="./Images/Polisher.svg" height="120" title="CMP" />
+				<img
+					src="./Images/Wafer_Mount.svg"
+					height="120"
+					title="Wafer Mount"
+				/>
+				<img
+					src="./Images/Wire_Bonder_1.svg"
+					height="120"
+					title="Wire Bonder"
+				/>
+			</header>
+		</div>
+		<div
+			id="content"
+			class="wrapper"
+			style="position: relative; left: 20px"
+			;
+		>
+			<div id="leftPane" width="250">
+				<header>
+					<br />
+					<h2>Task Groups</h2>
+					<h3>Equipment and Data Selection</h3>
+					<button id="metadataModel" class="btn btn-primary">
+						Select Equipment Model</button
+					><br /><br />
+					<button id="traceData" class="btn btn-primary">
+						Select Trace Data</button
+					><br /><br />
+					<button id="eventData" class="btn btn-primary">
+						Select Event Data</button
+					><br /><br />
+				</header>
+				<header>
+					<h3>Exploration and Visualization</h3>
+					<button id="vizModel" class="btn btn-primary">
+						Visualize Equipment Model</button
+					><br /><br />
+					<button id="vizTrace" class="btn btn-primary">
+						Analyze Trace Data</button
+					><br /><br />
+					<button id="vizEvent" class="btn btn-primary">
+						Analyze Event Data</button
+					><br /><br />
+				</header>
+
+				<svg id="taskSidebar" viewBox="0 0 250 1400">
+					<g id="selectionTasks"></g>
+					<g id="editingTasks"></g>
+					<g id="visualizationTasks"></g>
+					<div id="tip"></div>
+					<div id="selection-output"></div>
+				</svg>
+			</div>
+			<div id="rightPane" class="grid-container">
+				<div
+					id="eventselector"
+					class="awitem1"
+					style="position: relative; left: 300px; top: 30px"
+				>
+					<form class="btn-group btn-group-toggle">
+						<label
+							id="eventRadio-1"
+							class="btn btn-secondary active"
+							style="margin: 20px"
+							;
+						>
+							<input type="radio" />Node Visit Timing<br />
+						</label>
+						<label
+							id="eventRadio-2"
+							class="btn btn-secondary"
+							style="margin: 20px"
+						>
+							<input type="radio" />Node Visit Sequence<br />
+						</label>
+						<label
+							id="eventRadio-3"
+							class="btn btn-secondary"
+							style="margin: 20px"
+						>
+							<input type="radio" />Recipe Execution Timing<br />
+						</label>
+					</form>
+				</div>
+				<div
+					id="vizTitle"
+					class="awitem2"
+					style="
+						position: relative;
+						left: 450px;
+						top: 50px;
+						height: 40px;
+					"
+				></div>
+				<div id="nodetiming-div" class="awitem3"></div>
+				<div id="tipNode"></div>
+				<div id="nodesequence-div" class="awitem4"></div>
+				<div id="recipetiming-div" class="awitem5"></div>
+			</div>
+		</div>
+		<script src="js/script.js"></script>
+		<script src="js/nodeSequence.js"></script>
+		<script src="js/nodeTiming.js"></script>
+		<script src="js/recipeTiming.js"></script>
+		<script src="js/splom.js"></script>
+		<script src="js/linechart.js"></script>
+	</body>
+</html>
