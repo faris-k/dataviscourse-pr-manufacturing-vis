@@ -107,6 +107,8 @@ function callAlanEdit() {
 
 function callAlanViz() {
 	console.log("callAlanViz");
+	d3.selectAll(".grid-container-faris").remove();
+	d3.selectAll("#grid-container-filemon").remove();
 	var x9a = d3.select("#eventRadio-1");
 	x9a.on("click", (event, d) => {
 		this.callNodeTiming();
@@ -125,6 +127,8 @@ function callAlanViz() {
 
 function callNodeTiming() {
 	console.log("callNodeTiming");
+	d3.selectAll(".grid-container-faris").remove();
+	d3.selectAll("#grid-container-filemon").remove();
 	this.nodeBarChart = new NodeTiming(this.rawSubstrateEventData);
 	console.log("nodeBarChart = ", this.nodeBarChart);
 	this.nodeBarChart.drawNodeBarChart();
@@ -132,6 +136,8 @@ function callNodeTiming() {
 
 function callNodeSequence() {
 	console.log("callNodeSequence");
+	d3.selectAll(".grid-container-faris").remove();
+	d3.selectAll("#grid-container-filemon").remove();
 	this.nodeSeq = new NodeSequence(this.rawSequenceEventData);
 	console.log("nodeSeq = ", this.nodeSeq);
 	//	this.nodeSeq.drawNodeGraph();
@@ -139,6 +145,8 @@ function callNodeSequence() {
 
 function callRecipeTiming() {
 	console.log("callRecipeTiming");
+	d3.selectAll(".grid-container-faris").remove();
+	d3.selectAll("#grid-container-filemon").remove();
 	this.recipeBarChart = new RecipeTiming(this.rawRecipeEventData);
 	console.log("nodeBarChart = ", this.recipeBarChart);
 	this.recipeBarChart.drawRecipeBarChart();
